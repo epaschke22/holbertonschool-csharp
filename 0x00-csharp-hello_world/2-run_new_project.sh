@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-dotnet new console
+#creates, builds, and runs new c# project
+dotnet new console -o 2-new_project
