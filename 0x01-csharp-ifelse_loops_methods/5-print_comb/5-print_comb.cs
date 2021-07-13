@@ -7,12 +7,10 @@ namespace _5_print_comb
         static void Main(string[] args)
         {
             int i;
-            for (i = 0; i < 100; i++) {
-                Console.Write("{0:00}", i);
-                if (i < 99){
-                    Console.Write(", ");
-                }
+            for (i = 0; i < 99; i++) {
+                Console.Write("{0:00}, ", i);
             }
+            Console.WriteLine("{0:00}", i);
         }
     }
 }
