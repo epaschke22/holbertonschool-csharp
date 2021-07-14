@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace _13_best_score
+class Dictionary
 {
-    class Program
+    public static string BestScore(Dictionary<string, int> myList)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+        int maxscore = 0;
+        string maxkey = "None";
+        foreach (var entry in myList) {
+            if (entry.Value > maxscore) {
+                maxscore = entry.Value;
+                maxkey = entry.Key;
+            }
         }
+        return maxkey;
     }
 }
