@@ -5,12 +5,11 @@ class List
 {
     public static List<int> DeleteAt(List<int> myList, int index)
     {
-        try {
-            myList.Remove(myList[index]);
-            return myList;
-        } catch {
+        if (index < 0 || index > myList.Count - 1) {
             Console.WriteLine("Index out of range");
+            return myList;
         }
+        myList.Remove(myList[index]);
         return myList;
     }
 }
