@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace _1_common_elements
+class List
 {
-    class Program
+    public static List<int> CommonElements(List<int> list1, List<int> list2)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        var hashList1 = new HashSet<int>(list1);
+        var hashList2 = new HashSet<int>(list2);
+        hashList1.IntersectWith(hashList2);
+        var output = new List<int>(hashList1);
+        return output;
     }
 }
