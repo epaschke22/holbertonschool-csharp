@@ -7,19 +7,16 @@ class LList
     {
         LinkedListNode<int> current;
         current = myLList.First;
-        if (current.Value > n || current == null) {
-            myLList.AddFirst(n);
-            return myLList.First;
+        if (current.Value > n) {
+            return myLList.AddFirst(n);
         }
         while (current != null)
         {
             if (current.Next.Value > n) {
-                myLList.AddAfter(current, n);
-                return current.Next;
+                return myLList.AddAfter(current, n);
             }
             current = current.Next;
         }
-        myLList.AddLast(n);
-        return myLList.Last;
+        return myLList.AddLast(n);
     }
 }
