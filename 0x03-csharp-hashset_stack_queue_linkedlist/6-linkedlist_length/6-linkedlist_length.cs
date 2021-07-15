@@ -5,7 +5,7 @@ class LList
 {
     public static int Length(LinkedList<int> myLList)
     {
-        if (myLList == null) {
+        if (myLList.First == null) {
             return 0;
         }
         int count = 0;
