@@ -5,11 +5,17 @@ class List
 {
     public static List<int> DifferentElements(List<int> list1, List<int> list2)
     {
-        var hashList1 = new HashSet<int>(list1);
-        var hashList2 = new HashSet<int>(list2);
-        hashList1.SymmetricExceptWith(hashList2);
-        var output = new List<int>(hashList1);
-        output.Sort();
+        var output = new List<int>();
+        foreach (var item in list1) {
+            if (!list2.Contains(item)) {
+                output.Add(item);
+            }
+        }
+        foreach (var item in list2) {
+            if (!list1.Contains(item)) {
+                output.Add(item);
+            }
+        }
         return output;
     }
 }
