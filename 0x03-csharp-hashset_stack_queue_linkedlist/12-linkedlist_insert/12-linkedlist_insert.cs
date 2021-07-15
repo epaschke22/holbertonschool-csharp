@@ -5,6 +5,9 @@ class LList
 {
     public static LinkedListNode<int> Insert(LinkedList<int> myLList, int n)
     {
+        if (myLList.Count == 0) {
+            return myLList.AddLast(n);
+        }
         LinkedListNode<int> current;
         current = myLList.First;
         if (current.Value > n) {
