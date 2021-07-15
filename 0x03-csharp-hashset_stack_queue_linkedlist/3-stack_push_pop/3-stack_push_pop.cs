@@ -1,12 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace _3_stack_push_pop
+class MyStack
 {
-    class Program
+    public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+        Console.WriteLine("Number of items: {0}", aStack.Count);
+        if (aStack.Count != 0) {
+            Console.WriteLine("Top item: {0}", aStack.Peek());
+        } else {
+            Console.WriteLine("Stack is empty");
         }
+        Console.WriteLine("Stack contains <search>: {0}", aStack.Contains(search));
+        while (aStack.Contains(search)) {
+            aStack.Pop();
+        }
+        aStack.Push(newItem);
+        return aStack;
     }
 }
