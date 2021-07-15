@@ -7,7 +7,7 @@ class LList
     {
         LinkedListNode<int> current;
         current = myLList.First;
-        if (current.Value > n) {
+        if (current.Value > n || current == null) {
             myLList.AddFirst(n);
             return myLList.First;
         }
