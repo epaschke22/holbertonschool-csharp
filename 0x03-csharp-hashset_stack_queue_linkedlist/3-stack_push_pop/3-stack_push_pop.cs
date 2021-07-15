@@ -11,7 +11,7 @@ class MyStack
         } else {
             Console.WriteLine("Stack is empty");
         }
-        Console.WriteLine("Stack contains <search>: {0}", aStack.Contains(search));
+        Console.WriteLine("Stack contains {0}: {0}", search, aStack.Contains(search));
         while (aStack.Contains(search)) {
             aStack.Pop();
         }
