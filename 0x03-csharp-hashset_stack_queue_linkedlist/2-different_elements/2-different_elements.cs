@@ -16,6 +16,7 @@ class List
                 output.Add(item);
             }
         }
+        output.Sort();
         return output;
     }
 }
