@@ -11,7 +11,7 @@ class LList
         while (current != null)
         {
             if (idx == index) {
-               myLList.Remove(current);
+               myLList.Remove(current.Value);
             }
             idx++;
             current = current.Next;
