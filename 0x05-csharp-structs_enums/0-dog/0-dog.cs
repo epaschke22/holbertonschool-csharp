@@ -1,9 +1,8 @@
 ﻿using System;
 
-class Program
+enum Rating
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello World!");
-    }
+    Good,
+    Great,
+    Excellent
 }
