@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class Program
+class Except
 {
-    static void Main(string[] args)
+    public static void Throw()
     {
-        Console.WriteLine("Hello World!");
+        throw new Exception();
     }
 }
