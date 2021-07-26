@@ -1,9 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 
-class Program
+class List
 {
-    static void Main(string[] args)
+    public static int SafePrint(List<int> myList, int n)
     {
-        Console.WriteLine("Hello World!");
+        int printed = 0;
+        for (int i = 0; i < n; i++) {
+            try {
+                Console.WriteLine(myList[i]);
+                printed++;
+            } catch {
+                continue;
+            }
+        }
+        return printed;
     }
 }

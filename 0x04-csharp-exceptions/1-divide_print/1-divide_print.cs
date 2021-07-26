@@ -1,9 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
-class Program
+class Int
 {
-    static void Main(string[] args)
+    public static void divide(int a, int b)
     {
-        Console.WriteLine("Hello World!");
+        int result = 0;
+        try {
+            result = a / b;
+        } catch {
+            Console.WriteLine("Cannot divide by zero");
+        } finally {
+            Console.WriteLine("{0} / {1} = {2}", a, b, result);
+        }
     }
 }
