@@ -2,6 +2,7 @@
 
 namespace Enemies
 {
+    ///<summary>Adds getter for health field</summary>
     class Zombie
     {
         private int health;
