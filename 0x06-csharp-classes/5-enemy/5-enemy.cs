@@ -2,6 +2,7 @@
 
 namespace Enemies
 {
+    ///<summary>Overrides ToSring method with new output</summary>
     class Zombie
     {
         private int health;
@@ -15,9 +16,9 @@ namespace Enemies
             this.health = value;
         }
         private string name = "(No name)";
-        public string Name(string value) {
-            get => this.name;
-            set => this.name = value;
+        public string Name {
+            get { return name; }
+            set { name = value; }
         }
         public int GetHealth() {
             return this.health;
