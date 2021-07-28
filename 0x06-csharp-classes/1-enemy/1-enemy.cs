@@ -2,7 +2,7 @@
 
 namespace Enemies
 {
-    ///<summary>Adds feild and setter in class</summary>
+    ///<summary>Adds feild and default value</summary>
     class Zombie
     {
         public int health;
