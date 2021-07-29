@@ -7,8 +7,10 @@ namespace Tests
         [Test]
         public void TestUnique()
         {
-            int result = Text.Str.UniqueChar("aaaaah");
-            Assert.AreEqual(result, 5);
+            int result = Text.Str.UniqueChar("aaahaaa");
+            Assert.AreEqual(result, 3);
+            int result = Text.Str.UniqueChar("aabbbbccccdeeeee");
+            Assert.AreEqual(result, 10);
         }
 
         [Test]

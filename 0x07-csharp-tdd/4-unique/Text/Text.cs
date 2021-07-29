@@ -13,9 +13,9 @@ namespace Text
             int index = -1;
 
             for (int i = 0; i < str.Length; i++) {
-            if (count[str[i]] == 1) {
-                index = i;
-                break;
+                if (count[str[i]] == 1) {
+                    index = i;
+                    break;
                 }
             }
  
