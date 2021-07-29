@@ -24,5 +24,12 @@ namespace Tests
             int result = Text.Str.CamelCase("");
             Assert.AreEqual(result, 0);
         }
+
+        [Test]
+        public void TestAllCaps()
+        {
+            int result = Text.Str.CamelCase("ABBA");
+            Assert.AreEqual(result, 4);
+        }
     }
 }
