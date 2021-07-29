@@ -11,9 +11,9 @@ namespace Text
                 return 0;
             }
             int count = 1;
-            for (int i = 1; i < str.Length - 1; i++)
+            for (int i = 1; i < s.Length - 1; i++)
             {
-                if (str[i] >= 65 && str[i] <= 90)
+                if (s[i] >= 65 && s[i] <= 90)
                     count++;
             }
             return count;

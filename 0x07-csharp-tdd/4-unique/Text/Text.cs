@@ -6,8 +6,14 @@ namespace Text
     public class Str
     {
         public static int UniqueChar(string s) {
-            if (s.Length == 0 || s.Length == 1) {
+            if (s.Length == 0) {
                 return -1;
+            }
+            if (s.Length == 1) {
+                return 0;
+            }
+            if (s[0] != s[1]) {
+                return 0;
             }
             for (int i = 1; i < s.Length; i++) {
                 if (s[i - 1] != s[i]) {

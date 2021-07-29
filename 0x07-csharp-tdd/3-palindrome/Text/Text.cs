@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace Text
 {
@@ -8,8 +7,9 @@ namespace Text
     public class Str
     {
         public static bool IsPalindrome(string s) {
-            //string str = new string(s.Where(c => !char.IsPunctuation(c)).ToArray());
-            string str = Rege
+            string str = new string(s.Where(c => !char.IsPunctuation(c)).ToArray());
+            str = str.Replace(" ", String.Empty);
+            str = str.ToLower();
             return str.SequenceEqual(str.Reverse());
         }
     }
