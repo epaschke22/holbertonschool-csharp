@@ -33,10 +33,10 @@ namespace Tests
         }
 
         [Test]
-        public void TestIncorrect()
+        public void TestEmpty()
         {
-            bool result = Text.Str.IsPalindrome("Hello");
-            Assert.AreEqual(result, false);
+            bool result = Text.Str.IsPalindrome("");
+            Assert.AreEqual(result, true);
         }
     }
 }
