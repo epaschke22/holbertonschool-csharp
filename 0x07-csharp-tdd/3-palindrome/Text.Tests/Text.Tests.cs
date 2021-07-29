@@ -31,5 +31,12 @@ namespace Tests
             bool result = Text.Str.IsPalindrome("Racecar");
             Assert.AreEqual(result, true);
         }
+
+        [Test]
+        public void TestIncorrect()
+        {
+            bool result = Text.Str.IsPalindrome("Hello");
+            Assert.AreEqual(result, false);
+        }
     }
 }
