@@ -7,7 +7,7 @@ namespace Tests
         [Test]
         public void TestUnique()
         {
-            int result = Text.Str.UniqueChar("aaaaahhh");
+            int result = Text.Str.UniqueChar("aaaaah");
             Assert.AreEqual(result, 5);
         }
 
@@ -26,9 +26,9 @@ namespace Tests
         }
 
         [Test]
-        public void TestRepeatingChar()
+        public void TestRepeatingChars()
         {
-            int result = Text.Str.UniqueChar("aaaaa");
+            int result = Text.Str.UniqueChar("aaaaahhh");
             Assert.AreEqual(result, -1);
         }
 
