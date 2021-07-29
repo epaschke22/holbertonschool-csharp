@@ -9,7 +9,7 @@ namespace Tests
         {
             int result = Text.Str.UniqueChar("aaahaaa");
             Assert.AreEqual(result, 3);
-            int result = Text.Str.UniqueChar("aabbbbccccdeeeee");
+            result = Text.Str.UniqueChar("aabbbbccccd");
             Assert.AreEqual(result, 10);
         }
 
