@@ -22,6 +22,14 @@ namespace Tests
         }
 
         [Test]
+        public void TestSingleList()
+        {
+            var input = new List<int> {10};
+            int result = MyMath.Operations.Max(input);
+            Assert.AreEqual(result, 10);
+        }
+
+        [Test]
         public void TestEmptyList()
         {
             var input = new List<int> {};
