@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace _3_type_get
+class Obj
 {
-    class Program
+    public static void Print(object myObj)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        TypeInfo obj = typeof(myObj).GetTypeInfo();
+        Console.WriteLine("{} Properties:", "");
+        Console.WriteLine("{} Methods:", "");
     }
 }
