@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace _4_inherit
+class Animal
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
+    // emtpy
+}
+
+class Dog : Animal
+{
+    // emtpy
 }
