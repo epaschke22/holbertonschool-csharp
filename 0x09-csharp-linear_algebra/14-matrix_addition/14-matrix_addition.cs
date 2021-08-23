@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace _14_matrix_addition
+class MatrixMath
 {
-    class Program
+    public static double[,] Add(double[,] matrix1, double[,] matrix2)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        
     }
 }

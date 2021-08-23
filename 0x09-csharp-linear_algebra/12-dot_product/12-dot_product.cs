@@ -2,6 +2,7 @@
 
 class VectorMath
 {
+    ///<summary>returns dot product of 2 vectors, 2d or 3d</summary>
     public static double DotProduct(double[] vector1, double[] vector2)
     {
         if (vector1.Length == 2 && vector2.Length == 2)
