@@ -1,12 +1,21 @@
 ﻿using System;
 
-namespace _9_vector_scalar_mul
+class VectorMath
 {
-    class Program
+    ///<summary>multiplies a vector by a scalar, 2d or 3d</summary>
+    public static double[] Multiply(double[] vector, double scalar)
     {
-        static void Main(string[] args)
+        if (vector.Length == 2)
         {
-            Console.WriteLine("Hello World!");
+            return new double[] { vector[0] * scalar, vector[1] * scalar };
+        }
+        else if (vector.Length == 3)
+        {
+            return new double[] { vector[0] * scalar, vector[1] * scalar, vector[2] * scalar };
+        }
+        else
+        {
+            return new double[] {-1};
         }
     }
 }
