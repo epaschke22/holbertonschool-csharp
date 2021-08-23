@@ -2,6 +2,7 @@
 
 class VectorMath
 {
+    ///<summary>returns 2d or 3d vector length</summary>
     public static double Magnitude(double[] vector)
     {
         if (vector.Length == 2)
