@@ -1,6 +1,6 @@
 ﻿using System;
 
-class Numbers
+class VectorMath
 {
     public static double Magnitude(double[] vector)
     {
