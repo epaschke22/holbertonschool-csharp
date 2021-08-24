@@ -2,6 +2,7 @@
 
 class MatrixMath
 {
+    ///<summary>shears a 2D matrix in x or y direction by a factor</summary>
     public static double[,] Shear2D(double[,] matrix, char direction, double factor)
     {
         if ((matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2) || (direction != 'x' && direction != 'y')) {
