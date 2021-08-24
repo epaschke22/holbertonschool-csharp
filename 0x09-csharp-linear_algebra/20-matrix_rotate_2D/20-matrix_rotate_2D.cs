@@ -27,7 +27,7 @@ class MatrixMath
                     for (int k = 0; k < M1col; k++) {
                         total += matrix1[i, k] * matrix2[k, j];
                     }
-                    output[i, j] = Math.Round(total, 1);
+                    output[i, j] = Math.Round(total, 0);
                 }
             }
         }
