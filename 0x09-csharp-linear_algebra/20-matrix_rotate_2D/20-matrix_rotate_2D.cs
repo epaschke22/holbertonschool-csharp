@@ -8,7 +8,7 @@ class MatrixMath
         if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2) {
             return new double[,] {{-1}};
         }
-        double[,] rotation = new double[,] { { Math.Cos(angle), -Math.Sin(angle) }, { Math.Sin(angle), Math.Cos(angle) } };
+        double[,] rotation = new double[,] { { Math.Cos(angle), Math.Sin(angle) }, { -Math.Sin(angle), Math.Cos(angle) } };
         return Multiply(matrix, rotation);
     }
 
