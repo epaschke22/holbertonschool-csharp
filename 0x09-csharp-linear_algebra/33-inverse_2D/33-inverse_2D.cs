@@ -9,7 +9,7 @@ class MatrixMath
             double determinant = 1 / (matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0]);
             for (int i = 0; i < 2; i++)
                 for (int j = 0; j < 2; j++)
-                    flipped[i, j] *= determinant;
+                    flipped[i, j] *= Math.Round(determinant, 2);
             return flipped;
         } else {
             return new double[,] {{-1}};
