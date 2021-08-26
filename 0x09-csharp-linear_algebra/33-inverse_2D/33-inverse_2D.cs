@@ -12,7 +12,7 @@ class MatrixMath
             }
             for (int i = 0; i < 2; i++)
                 for (int j = 0; j < 2; j++)
-                    flipped[i, j] *= Math.Round(1 / determinant, 2);
+                    flipped[i, j] = Math.Round(flipped[i, j] * (1 / determinant), 2);
             return flipped;
         } else {
             return new double[,] {{-1}};
