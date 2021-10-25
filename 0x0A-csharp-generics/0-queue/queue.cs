@@ -4,8 +4,8 @@
 public class Queue<T>
 {
     ///<summary>returns the type of the object passed in</summary>
-    public string CheckType()
+    public Type CheckType()
     {
-        return typeof(T).Name;
+        return typeof(T);
     }
 }
