@@ -17,7 +17,7 @@ public class Queue<T>
         ///<summary>pointer to next node</summary>
         public Node next = null;
 
-        ///<summary>node constructor</summary>
+        ///<summary>node constructor -- this is not a proper constructor</summary>
         public void constuctNode(T val)
         {
             value = val;
