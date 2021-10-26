@@ -3,7 +3,7 @@
 ///<summary>abstract class</summary>
 abstract class Base
 {
-    public string name;
+    public string name { get; set; }
 
     public override string ToString()
     {
