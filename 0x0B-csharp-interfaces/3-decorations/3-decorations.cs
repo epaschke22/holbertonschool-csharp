@@ -70,7 +70,7 @@ public class Decoration : Base, IInteractive, IBreakable
         {
             Console.WriteLine($"The {name} has been broken.");
         }
-        if (isQuestItem == true)
+        else if (isQuestItem == true)
         {
             Console.WriteLine($"You look at the {name}. There's a key inside.");
         }
