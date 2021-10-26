@@ -56,11 +56,11 @@ public class Decoration : Base, IInteractive, IBreakable
     public int durability { get; set; }
 
     ///<summary>constructor</summary>
-    public Decoration(string Name = "Decoration", int Durability = 1, bool IsQuestItem = false)
+    public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
     {
-        name = Name;
-        durability = Durability;
-        isQuestItem = IsQuestItem;
+        this.name = name;
+        this.durability = durability;
+        this.isQuestItem = isQuestItem;
     }
 
     ///<summary>IInteractive method</summary>
