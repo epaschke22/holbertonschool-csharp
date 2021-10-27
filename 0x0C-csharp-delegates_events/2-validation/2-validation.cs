@@ -35,6 +35,7 @@ public class Player
         if (damage < 0)
             damage = 0;
         Console.WriteLine($"{name} takes {damage} damage!");
+        ValidateHP(hp - damage);
     }
 
     ///<summary>Method for CalculateHealth delegate</summary>
@@ -43,5 +44,17 @@ public class Player
         if (heal < 0)
             heal = 0;
         Console.WriteLine($"{name} heals {heal} HP!");
+        ValidateHP(hp + heal);
+    }
+
+    ///<summary>Method for changing the hp value</summary>
+    public void ValidateHP(float newHp)
+    {
+        if (newHp > maxHp)
+            hp = maxHp;
+        else if (newHp < 0)
+            hp = 0;
+        else
+            hp = newHp;
     }
 }
