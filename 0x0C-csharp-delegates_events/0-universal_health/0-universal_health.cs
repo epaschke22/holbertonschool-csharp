@@ -1,11 +1,13 @@
 ﻿using System;
 
+///<summary>Player class</summary>
 public class Player
 {
     string name;
     float maxHp;
     float hp;
 
+    ///<summary>Player Constructor</summary>
     public Player(string name = "Player", float maxHp = 100f)
     {
         this.name = name;
@@ -17,5 +19,10 @@ public class Player
         else
             this.maxHp = maxHp;
         this.hp = maxHp;
+    }
+    ///<summary>Print Player health</summary>
+    public void PrintHealth()
+    {
+        Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 }
