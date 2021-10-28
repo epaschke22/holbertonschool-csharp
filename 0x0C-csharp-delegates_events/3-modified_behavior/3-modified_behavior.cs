@@ -26,9 +26,6 @@ public class Player
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 
-    ///<summary>Delegate to manage hp change</summary>
-    public delegate void CalculateHealth(float value);
-
     ///<summary>Method for CalculateHealth delegate</summary>
     public void TakeDamage(float damage)
     {
@@ -58,25 +55,28 @@ public class Player
             hp = newHp;
     }
 
-    ///<summary>Delegate to manage hp change with a modifyer</summary>
-    public delegate float CalculateModifier(float baseValue, Modifier modifier);
-
     ///<summary>Delegate method for CalculateModifier</summary>
-    public void ApplyModifier (float baseValue, Modifier modifier)
+    public float ApplyModifier (float baseValue, Modifier modifier)
     {
         float result = baseValue;
         switch(modifier)
         {
-            case Weak:
-                result *= .5;
+            default:
                 break;
-            case Base:
+            case Modifier.Weak:
+                result *= .5f;
                 break;
-            case Strong:
-                result *= 1.5;
+            case Modifier.Strong:
+                result *= 1.5f;
+                break;
         }
         return result;
     }
 }
 
-enum Modifider {Weak, Base, Strong};
+///<summary>Delegate to manage hp change</summary>
+public delegate void CalculateHealth(float value);
+
+///<summary>Delegate to manage hp change with a modifyer</summary>
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
+public enum Modifier {Weak, Base, Strong};
