@@ -62,9 +62,20 @@ public class Player
     public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
     ///<summary>Delegate method for CalculateModifier</summary>
-    public void ApplyModifier (CalculateModifier mod)
+    public void ApplyModifier (float baseValue, Modifier modifier)
     {
-        
+        float result = baseValue;
+        switch(modifier)
+        {
+            case Weak:
+                result *= .5;
+                break;
+            case Base:
+                break;
+            case Strong:
+                result *= 1.5;
+        }
+        return result;
     }
 }
 
