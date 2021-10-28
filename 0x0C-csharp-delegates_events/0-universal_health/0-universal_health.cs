@@ -3,9 +3,9 @@
 ///<summary>Player class</summary>
 public class Player
 {
-    string name;
-    float maxHp;
-    float hp;
+    private string name;
+    private float maxHp;
+    private float hp;
 
     ///<summary>Player Constructor</summary>
     public Player(string name = "Player", float maxHp = 100f)
