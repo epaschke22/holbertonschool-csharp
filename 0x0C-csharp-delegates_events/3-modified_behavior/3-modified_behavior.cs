@@ -79,4 +79,12 @@ public delegate void CalculateHealth(float value);
 
 ///<summary>Delegate to manage hp change with a modifyer</summary>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
-public enum Modifier {Weak, Base, Strong};
+///<summary>Enum for different kinds of modifiers</summary>
+public enum Modifier {
+    ///<summary>50% damage</summary>
+    Weak,
+    ///<summary>100% damage</summary>
+    Base,
+    ///<summary>150% damage</summary>
+    Strong
+    };
