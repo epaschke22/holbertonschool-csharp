@@ -86,4 +86,4 @@ public enum Modifier {
     Base,
     ///<summary>150% damage</summary>
     Strong
-    };
+};
