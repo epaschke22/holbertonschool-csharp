@@ -4,7 +4,7 @@ namespace InventoryLibrary
 {
     public class BaseClass
     {
-        string id;
+        public string id;
         DateTime date_created;
         DateTime date_updated;
     }

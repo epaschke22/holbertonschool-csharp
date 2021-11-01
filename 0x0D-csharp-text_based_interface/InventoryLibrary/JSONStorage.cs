@@ -5,16 +5,16 @@ namespace InventoryLibrary
 {
     public class JSONStorage
     {
-        var objects = new Dictionary<string, string>();
+        Dictionary<string, string> objects = new Dictionary<string, string>();
 
         public Dictionary<string, string> All()
         {
             return objects;
         }
 
-        public void New()
+        public void New(BaseClass obj)
         {
-
+            objects.Add(obj.GetType().Name, obj.id);
         }
 
         public void Save()
