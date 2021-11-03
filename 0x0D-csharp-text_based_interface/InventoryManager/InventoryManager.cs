@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 using InventoryLibrary;
 
 namespace InventoryManager
@@ -27,7 +28,7 @@ namespace InventoryManager
             }
         }
 
-        public void manageInputs(string[] commands)
+        public static void manageInputs(string[] commands)
         {
             string[] classNames = { "Item", "User", "Inventory" };
             if (commands.Length > 1 && !classNames.Contains<string>(commands[1]))
@@ -39,10 +40,11 @@ namespace InventoryManager
             switch(commands[0])
             {
                 case "All":
+                    Dictionary<string, string> result = new Dictionary<string, string>();
                     if (commands.Length == 1)
-                        Dictionary<string, string> result = JSONStorage.All();
+                        result = JSONStorage.All();
                     else
-                        Dictionary<string, string> result = AllClassName(commands[1]);
+                        result = AllClassName(commands[1]);
                     Console.WriteLine(result);
                     break;
                 case "Create":
@@ -54,6 +56,7 @@ namespace InventoryManager
                 case "Delete":
                     break;
                 case "Exit":
+                    System.Environment.Exit(0);
                     break;
                 default:
                     Console.WriteLine($"{commands[0]} is not a valid command");
@@ -61,7 +64,7 @@ namespace InventoryManager
             }
         }
 
-        public void AllClassName(string className)
+        public static Dictionary<string, string> AllClassName(string className)
         {
             Dictionary<string, string> objects = JSONStorage.All();
             Dictionary<string, string> result = new Dictionary<string, string>();

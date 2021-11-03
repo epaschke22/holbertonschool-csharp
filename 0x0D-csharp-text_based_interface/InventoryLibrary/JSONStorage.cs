@@ -9,17 +9,16 @@ namespace InventoryLibrary
     public class JSONStorage
     {
         string fileName = "./storage/inventory_manager.json";
-        Dictionary<string, string> objects = new Dictionary<string, string>();
+        static Dictionary<string, string> objects = new Dictionary<string, string>();
 
-        public Dictionary<string, string> All(BaseClass obj = null)
+        static public Dictionary<string, string> All()
         {
-            if (obj == null)
-                return objects;
+            return objects;
         }
 
         public void New(BaseClass obj)
         {
-            objects.Add(obj.GetType().Name + '.' + obj.id, obj);
+            objects.Add(obj.GetType().Name + '.' + obj.id, obj.ToString());
         }
 
         public void Save()

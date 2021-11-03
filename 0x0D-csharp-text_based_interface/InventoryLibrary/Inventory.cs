@@ -4,8 +4,8 @@ namespace InventoryLibrary
 {
     public class Inventory : BaseClass
     {
-        User id = user_id;
-        Item id = item_id;
+        string user_id = null;
+        string item_id = null;
         int quantity = 1;
     }
 }
