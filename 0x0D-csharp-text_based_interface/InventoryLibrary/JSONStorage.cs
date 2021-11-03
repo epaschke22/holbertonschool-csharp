@@ -11,9 +11,10 @@ namespace InventoryLibrary
         string fileName = "./storage/inventory_manager.json";
         Dictionary<string, string> objects = new Dictionary<string, string>();
 
-        public Dictionary<string, string> All()
+        public Dictionary<string, string> All(BaseClass obj = null)
         {
-            return objects;
+            if (obj == null)
+                return objects;
         }
 
         public void New(BaseClass obj)
