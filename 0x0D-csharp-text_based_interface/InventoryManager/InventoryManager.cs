@@ -40,20 +40,59 @@ namespace InventoryManager
             switch(commands[0])
             {
                 case "All":
-                    Dictionary<string, string> result = new Dictionary<string, string>();
+                    Dictionary<string, BaseClass> result = new Dictionary<string, BaseClass>();
                     if (commands.Length == 1)
                         result = JSONStorage.All();
                     else
                         result = AllClassName(commands[1]);
-                    Console.WriteLine(result);
+                    foreach (KeyValuePair<string, BaseClass> entry in result)
+                    {
+                        string key = entry.Key;
+                        string value = entry.Value.ToString();
+                        Console.WriteLine($"{key},{value}");
+                    }
                     break;
                 case "Create":
+                    if (commands.Length == 1)
+                        Console.WriteLine("Useage: <Create [ClassName]>");
+                    switch(commands[1])
+                    {
+                        case "Item":
+                            Item itemObj = new Item();
+                            JSONStorage.New(itemObj);
+                            Console.WriteLine($"Created Item {itemObj.id}");
+                            break;
+                        case "User":
+                            User userObj = new User();
+                            JSONStorage.New(userObj);
+                            Console.WriteLine($"Created User {userObj.id}");
+                            break;
+                        case "Inventory":
+                            Inventory invObj = new Inventory();
+                            JSONStorage.New(invObj);
+                            Console.WriteLine($"Created Inventory {invObj.id}");
+                            break;
+                        default:
+                            Console.WriteLine("Not a vaild class");
+                            break;
+                    }
                     break;
                 case "Show":
+                    if (commands.Length < 2)
+                        Console.WriteLine("Useage: <Show [ClassName object_id]>");
+                    else
+                    {
+                        BaseClass showObj = GetObject(commands[1], commands[2]);
+                        Console.WriteLine(showObj);
+                    }
                     break;
                 case "Update":
+                    if (commands.Length < 2)
+                        Console.WriteLine("Useage: <Update [ClassName object_id]>");
                     break;
                 case "Delete":
+                    if (commands.Length < 2)
+                        Console.WriteLine("Useage: <Delete [ClassName object_id]>");
                     break;
                 case "Exit":
                     System.Environment.Exit(0);
@@ -64,10 +103,10 @@ namespace InventoryManager
             }
         }
 
-        public static Dictionary<string, string> AllClassName(string className)
+        public static Dictionary<string, BaseClass> AllClassName(string className)
         {
-            Dictionary<string, string> objects = JSONStorage.All();
-            Dictionary<string, string> result = new Dictionary<string, string>();
+            Dictionary<string, BaseClass> objects = JSONStorage.All();
+            Dictionary<string, BaseClass> result = new Dictionary<string, BaseClass>();
             foreach (var entry in objects)
             {
                 string[] name = entry.Key.Split('.');
@@ -75,6 +114,16 @@ namespace InventoryManager
                     result.Add(entry.Key, entry.Value);
             }
             return result;
+        }
+
+        public static BaseClass GetObject(string className, string classId)
+        {
+            Dictionary<string, BaseClass> objects = JSONStorage.All();
+            string searchItem = className + '.' + classId;
+            foreach (var entry in objects)
+                if (searchItem == entry.Key)
+                    return entry.Value;
+            return null;
         }
     }
 }

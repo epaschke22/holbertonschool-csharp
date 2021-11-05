@@ -8,29 +8,29 @@ namespace InventoryLibrary
 {
     public class JSONStorage
     {
-        string fileName = "./storage/inventory_manager.json";
-        static Dictionary<string, string> objects = new Dictionary<string, string>();
+        static string fileName = "./storage/inventory_manager.json";
+        static Dictionary<string, BaseClass> objects = new Dictionary<string, BaseClass>();
 
-        static public Dictionary<string, string> All()
+        public static Dictionary<string, BaseClass> All()
         {
             return objects;
         }
 
-        public void New(BaseClass obj)
+        public static void New(BaseClass obj)
         {
-            objects.Add(obj.GetType().Name + '.' + obj.id, obj.ToString());
+            objects.Add(obj.GetType().Name + '.' + obj.id, obj);
         }
 
-        public void Save()
+        public static void Save()
         {
             string jsonString = JsonSerializer.Serialize(objects);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public void Load()
+        public static void Load()
         {
             string jsonString = File.ReadAllText(fileName);
-            objects = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
+            objects = JsonSerializer.Deserialize<Dictionary<string, BaseClass>>(jsonString);
         }
     }
 }
