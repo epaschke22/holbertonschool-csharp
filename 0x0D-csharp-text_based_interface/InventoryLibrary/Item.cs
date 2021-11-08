@@ -6,9 +6,12 @@ namespace InventoryLibrary
     ///<summary>Item Class</summary>
     public class Item : BaseClass
     {
-        string name;
-        string description;
-        float price;
+        ///<summary>name</summary>
+        public string name;
+        ///<summary>description</summary>
+        public string description;
+        ///<summary>price</summary>
+        public float price;
         //List<string> tags = new List<string>();
 
         ///<summary>Constructor</summary>

@@ -5,9 +5,12 @@ namespace InventoryLibrary
     ///<summary>Inventory Class</summary>
     public class Inventory : BaseClass
     {
-        string user_id;
-        string item_id;
-        int quantity;
+        ///<summary>user_id</summary>
+        public string user_id;
+        ///<summary>item_id</summary>
+        public string item_id;
+        ///<summary>quantity</summary>
+        public int quantity;
 
         ///<summary>Constructor</summary>
         public Inventory(string user_id = "0", string item_id = "0", int quantity = 1)

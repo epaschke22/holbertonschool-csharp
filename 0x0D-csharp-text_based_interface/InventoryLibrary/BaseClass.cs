@@ -7,7 +7,9 @@ namespace InventoryLibrary
     {
         ///<summary>id</summary>
         public string id = Guid.NewGuid().ToString();
-        DateTime date_created = DateTime.Now;
-        DateTime date_updated = DateTime.Now;
+        ///<summary>DateTime</summary>
+        public DateTime date_created = DateTime.Now;
+        ///<summary>DateTime</summary>
+        public DateTime date_updated = DateTime.Now;
     }
 }
