@@ -12,14 +12,14 @@ namespace InventoryManager
         {
             Console.WriteLine("Inventory Manager");
             Console.WriteLine("-------------------------");
-            Console.WriteLine("<ClassNames> show all ClassNames of objects");
+            Console.WriteLine("<classNames> show all ClassNames of objects");
             Console.WriteLine("<all> show all objects");
             Console.WriteLine("<all [ClassName]> show all objects of a ClassNam");
             Console.WriteLine("<create [ClassName]> a new object");
-            Console.WriteLine("<create Inventory (user ID) (item ID)> make a new Inventory object");
-            Console.WriteLine("<show [ClassName object_id]> an object");
-            Console.WriteLine("<update [ClassName object_id]> an object");
-            Console.WriteLine("<delete [ClassName object_id]> an object");
+            Console.WriteLine("<create Inventory (item ID) (user ID)> make a new Inventory object");
+            Console.WriteLine("<show [ClassName] [object_id]> an object");
+            Console.WriteLine("<update [ClassName] [object_id]> an object");
+            Console.WriteLine("<delete [ClassName] [object_id]> an object");
             Console.WriteLine("<exit>");
 
             //JSONStorage.Load();
@@ -42,6 +42,26 @@ namespace InventoryManager
 
             switch(commands[0])
             {
+                case "classNames":
+                    Dictionary<string, BaseClass> currentDB = new Dictionary<string, BaseClass>();
+                    currentDB = JSONStorage.All();
+                    List<string> existingClassNames = new List<string>();
+                    foreach (var entry in currentDB)
+                    {
+                        string[] objectname = entry.Key.Split('.');
+                        if (!(existingClassNames.Contains(objectname[0])))
+                            existingClassNames.Add(objectname[0]);
+                    }
+                    if (existingClassNames.Count > 0)
+                    {
+                        Console.Write("Classes in Database: ");
+                        foreach (string clsName in existingClassNames)
+                            Console.Write($"{clsName} ");
+                        Console.WriteLine("");
+                    }
+                    else
+                        Console.WriteLine("No Objects Database");
+                    break;
                 case "all":
                     Dictionary<string, BaseClass> result = new Dictionary<string, BaseClass>();
                     if (commands.Length == 1)
@@ -76,12 +96,12 @@ namespace InventoryManager
                                 Console.WriteLine($"Inventory requires user and item ID");
                                 break;
                             }
-                            if (GetObject("User", commands[2]) == null)
+                            if (GetObject("Item", commands[2]) == null)
                             {
-                                Console.WriteLine($"User doesnt exist");
+                                Console.WriteLine($"Item doesnt exist");
                                 break;
                             }
-                            if (GetObject("Item", commands[3]) == null)
+                            if (GetObject("User", commands[3]) == null)
                             {
                                 Console.WriteLine($"User doesnt exist");
                                 break;
@@ -96,21 +116,48 @@ namespace InventoryManager
                     }
                     break;
                 case "show":
-                    if (commands.Length < 2)
-                        Console.WriteLine("Useage: <Show [ClassName object_id]>");
+                    if (commands.Length < 3)
+                        Console.WriteLine("Useage: <Show [ClassName] [object_id]>");
                     else
                     {
                         BaseClass showObj = GetObject(commands[1], commands[2]);
+                        if (showObj == null)
+                        {
+                            Console.WriteLine($"Object doesnt exist");
+                            break;
+                        }
                         Console.WriteLine(showObj);
                     }
                     break;
                 case "update":
-                    if (commands.Length < 2)
-                        Console.WriteLine("Useage: <Update [ClassName object_id]>");
+                    if (commands.Length < 3)
+                        Console.WriteLine("Useage: <Update [ClassName] [object_id]>");
+                    else
+                    {
+                        BaseClass showObj = GetObject(commands[1], commands[2]);
+                        if (showObj == null)
+                        {
+                            Console.WriteLine($"Object doesnt exist");
+                            break;
+                        }
+                        Console.WriteLine(showObj);
+                    }
                     break;
                 case "delete":
-                    if (commands.Length < 2)
-                        Console.WriteLine("Useage: <Delete [ClassName object_id]>");
+                    if (commands.Length < 3)
+                        Console.WriteLine("Useage: <Delete [ClassName] [object_id]>");
+                    else
+                    {
+                        BaseClass showObj = GetObject(commands[1], commands[2]);
+                        if (showObj == null)
+                        {
+                            Console.WriteLine($"Object doesnt exist");
+                            break;
+                        }
+                        string objectName = commands[1] + "." + commands[2];
+                        JSONStorage.objects.Remove(objectName);
+                        Console.WriteLine($"{objectName} has been removed");
+                    }
                     break;
                 case "exit":
                     JSONStorage.Save();

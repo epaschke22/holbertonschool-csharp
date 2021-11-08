@@ -10,7 +10,8 @@ namespace InventoryLibrary
     public class JSONStorage
     {
         static string fileName = "../storage/inventory_manager.json";
-        static Dictionary<string, BaseClass> objects = new Dictionary<string, BaseClass>();
+        ///<summary>Dictionary Database</summary>
+        public static Dictionary<string, BaseClass> objects = new Dictionary<string, BaseClass>();
 
         ///<summary>returns database</summary>
         public static Dictionary<string, BaseClass> All()
