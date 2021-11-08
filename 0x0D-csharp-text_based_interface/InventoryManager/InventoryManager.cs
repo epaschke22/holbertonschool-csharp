@@ -5,6 +5,7 @@ using InventoryLibrary;
 
 namespace InventoryManager
 {
+    ///<summary>Main App</summary>
     class Program
     {
         static void Main(string[] args)
@@ -73,6 +74,16 @@ namespace InventoryManager
                             if (commands.Length < 4)
                             {
                                 Console.WriteLine($"Inventory requires user and item ID");
+                                break;
+                            }
+                            if (GetObject("User", commands[2]) == null)
+                            {
+                                Console.WriteLine($"User doesnt exist");
+                                break;
+                            }
+                            if (GetObject("Item", commands[3]) == null)
+                            {
+                                Console.WriteLine($"User doesnt exist");
                                 break;
                             }
                             Inventory invObj = new Inventory(commands[2], commands[3]);
