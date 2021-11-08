@@ -9,7 +9,7 @@ namespace InventoryLibrary
     ///<summary>Storage Class</summary>
     public class JSONStorage
     {
-        static string fileName = "../storage/inventory_manager.json";
+        static string fileName = "./storage/inventory_manager.json";
         ///<summary>Dictionary Database</summary>
         public static Dictionary<string, BaseClass> objects = new Dictionary<string, BaseClass>();
 
@@ -28,7 +28,8 @@ namespace InventoryLibrary
         ///<summary>Serializes</summary>
         public static void Save()
         {
-            string jsonString = JsonSerializer.Serialize(objects);
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(objects, options);
             File.WriteAllText(fileName, jsonString);
         }
 

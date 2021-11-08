@@ -15,7 +15,7 @@ namespace InventoryLibrary
         //List<string> tags = new List<string>();
 
         ///<summary>Constructor</summary>
-        public Item(string name = "", string description = "", float price = 0.00f)
+        public Item(string name = "deault_item", string description = "", float price = 0.00f)
         {
             this.name = name;
             this.description = description;

@@ -9,7 +9,7 @@ namespace InventoryLibrary
         public string name;
 
         ///<summary>Constructor</summary>
-        public User(string name = "user")
+        public User(string name = "deault_user")
         {
             this.name = name;
         }
