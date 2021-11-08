@@ -9,7 +9,7 @@ namespace InventoryLibrary
     ///<summary>Storage Class</summary>
     public class JSONStorage
     {
-        static string fileName = "./storage/inventory_manager.json";
+        static string fileName = "../storage/inventory_manager.json";
         static Dictionary<string, BaseClass> objects = new Dictionary<string, BaseClass>();
 
         ///<summary>returns database</summary>
