@@ -12,14 +12,16 @@ namespace InventoryManager
             Console.WriteLine("Inventory Manager");
             Console.WriteLine("-------------------------");
             Console.WriteLine("<ClassNames> show all ClassNames of objects");
-            Console.WriteLine("<All> show all objects");
-            Console.WriteLine("<All [ClassName]> show all objects of a ClassNam");
-            Console.WriteLine("<Create [ClassName]> a new object");
-            Console.WriteLine("<Show [ClassName object_id]> an object");
-            Console.WriteLine("<Update [ClassName object_id]> an object");
-            Console.WriteLine("<Delete [ClassName object_id]> an object");
-            Console.WriteLine("<Exit>");
+            Console.WriteLine("<all> show all objects");
+            Console.WriteLine("<all [ClassName]> show all objects of a ClassNam");
+            Console.WriteLine("<create [ClassName]> a new object");
+            Console.WriteLine("<create Inventory (user ID) (item ID)> make a new Inventory object");
+            Console.WriteLine("<show [ClassName object_id]> an object");
+            Console.WriteLine("<update [ClassName object_id]> an object");
+            Console.WriteLine("<delete [ClassName object_id]> an object");
+            Console.WriteLine("<exit>");
 
+            //JSONStorage.Load();
             while (true)
             {
                 string input = Console.ReadLine();
@@ -39,7 +41,7 @@ namespace InventoryManager
 
             switch(commands[0])
             {
-                case "All":
+                case "all":
                     Dictionary<string, BaseClass> result = new Dictionary<string, BaseClass>();
                     if (commands.Length == 1)
                         result = JSONStorage.All();
@@ -52,7 +54,7 @@ namespace InventoryManager
                         Console.WriteLine($"{key},{value}");
                     }
                     break;
-                case "Create":
+                case "create":
                     if (commands.Length == 1)
                         Console.WriteLine("Useage: <Create [ClassName]>");
                     switch(commands[1])
@@ -68,7 +70,12 @@ namespace InventoryManager
                             Console.WriteLine($"Created User {userObj.id}");
                             break;
                         case "Inventory":
-                            Inventory invObj = new Inventory();
+                            if (commands.Length < 4)
+                            {
+                                Console.WriteLine($"Inventory requires user and item ID");
+                                break;
+                            }
+                            Inventory invObj = new Inventory(commands[2], commands[3]);
                             JSONStorage.New(invObj);
                             Console.WriteLine($"Created Inventory {invObj.id}");
                             break;
@@ -77,7 +84,7 @@ namespace InventoryManager
                             break;
                     }
                     break;
-                case "Show":
+                case "show":
                     if (commands.Length < 2)
                         Console.WriteLine("Useage: <Show [ClassName object_id]>");
                     else
@@ -86,15 +93,16 @@ namespace InventoryManager
                         Console.WriteLine(showObj);
                     }
                     break;
-                case "Update":
+                case "update":
                     if (commands.Length < 2)
                         Console.WriteLine("Useage: <Update [ClassName object_id]>");
                     break;
-                case "Delete":
+                case "delete":
                     if (commands.Length < 2)
                         Console.WriteLine("Useage: <Delete [ClassName object_id]>");
                     break;
-                case "Exit":
+                case "exit":
+                    JSONStorage.Save();
                     System.Environment.Exit(0);
                     break;
                 default:
