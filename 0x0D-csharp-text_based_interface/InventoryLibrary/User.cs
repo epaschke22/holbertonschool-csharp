@@ -6,7 +6,7 @@ namespace InventoryLibrary
     public class User : BaseClass
     {
         ///<summary>name</summary>
-        public string name;
+        public string name {get; set;}
 
         ///<summary>Constructor</summary>
         public User(string name = "deault_user")

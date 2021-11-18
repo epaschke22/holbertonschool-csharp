@@ -6,10 +6,10 @@ namespace InventoryLibrary
     public class BaseClass
     {
         ///<summary>id</summary>
-        public string id = Guid.NewGuid().ToString();
+        public string id {get; set;} = Guid.NewGuid().ToString();
         ///<summary>DateTime</summary>
-        public DateTime date_created = DateTime.Now;
+        public DateTime date_created {get; set;} = DateTime.Now;
         ///<summary>DateTime</summary>
-        public DateTime date_updated = DateTime.Now;
+        public DateTime date_updated {get; set;} = DateTime.Now;
     }
 }

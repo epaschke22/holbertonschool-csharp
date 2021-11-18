@@ -43,7 +43,7 @@ namespace InventoryManager
             switch(commands[0])
             {
                 case "classNames":
-                    Dictionary<string, BaseClass> currentDB = new Dictionary<string, BaseClass>();
+                    Dictionary<string, object> currentDB = new Dictionary<string, object>();
                     currentDB = JSONStorage.All();
                     List<string> existingClassNames = new List<string>();
                     foreach (var entry in currentDB)
@@ -63,12 +63,12 @@ namespace InventoryManager
                         Console.WriteLine("No Objects Database");
                     break;
                 case "all":
-                    Dictionary<string, BaseClass> result = new Dictionary<string, BaseClass>();
+                    Dictionary<string, object> result = new Dictionary<string, object>();
                     if (commands.Length == 1)
                         result = JSONStorage.All();
                     else
                         result = AllClassName(commands[1]);
-                    foreach (KeyValuePair<string, BaseClass> entry in result)
+                    foreach (KeyValuePair<string, object> entry in result)
                     {
                         string key = entry.Key;
                         string value = entry.Value.ToString();
@@ -120,7 +120,7 @@ namespace InventoryManager
                         Console.WriteLine("Useage: <Show [ClassName] [object_id]>");
                     else
                     {
-                        BaseClass showObj = GetObject(commands[1], commands[2]);
+                        object showObj = GetObject(commands[1], commands[2]);
                         if (showObj == null)
                         {
                             Console.WriteLine($"Object doesnt exist");
@@ -134,7 +134,7 @@ namespace InventoryManager
                         Console.WriteLine("Useage: <Update [ClassName] [object_id]>");
                     else
                     {
-                        BaseClass showObj = GetObject(commands[1], commands[2]);
+                        object showObj = GetObject(commands[1], commands[2]);
                         if (showObj == null)
                         {
                             Console.WriteLine($"Object doesnt exist");
@@ -148,7 +148,7 @@ namespace InventoryManager
                         Console.WriteLine("Useage: <Delete [ClassName] [object_id]>");
                     else
                     {
-                        BaseClass showObj = GetObject(commands[1], commands[2]);
+                        object showObj = GetObject(commands[1], commands[2]);
                         if (showObj == null)
                         {
                             Console.WriteLine($"Object doesnt exist");
@@ -169,10 +169,10 @@ namespace InventoryManager
             }
         }
 
-        public static Dictionary<string, BaseClass> AllClassName(string className)
+        public static Dictionary<string, object> AllClassName(string className)
         {
-            Dictionary<string, BaseClass> objects = JSONStorage.All();
-            Dictionary<string, BaseClass> result = new Dictionary<string, BaseClass>();
+            Dictionary<string, object> objects = JSONStorage.All();
+            Dictionary<string, object> result = new Dictionary<string, object>();
             foreach (var entry in objects)
             {
                 string[] name = entry.Key.Split('.');
@@ -182,9 +182,9 @@ namespace InventoryManager
             return result;
         }
 
-        public static BaseClass GetObject(string className, string classId)
+        public static object GetObject(string className, string classId)
         {
-            Dictionary<string, BaseClass> objects = JSONStorage.All();
+            Dictionary<string, object> objects = JSONStorage.All();
             string searchItem = className + '.' + classId;
             foreach (var entry in objects)
                 if (searchItem == entry.Key)

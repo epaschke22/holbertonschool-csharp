@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace InventoryLibrary
 {
@@ -7,11 +8,11 @@ namespace InventoryLibrary
     public class Item : BaseClass
     {
         ///<summary>name</summary>
-        public string name;
+        public string name {get; set;}
         ///<summary>description</summary>
-        public string description;
+        public string description {get; set;}
         ///<summary>price</summary>
-        public float price;
+        public float price {get; set;}
         //List<string> tags = new List<string>();
 
         ///<summary>Constructor</summary>
